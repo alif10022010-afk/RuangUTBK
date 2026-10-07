@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Materi belajar UTBK-SNBT RuangUTBK.">
+  <title>Materi — RuangUTBK</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/feather-icons"></script>
+</head>
+<body data-page="learning">
+
+<header class="site-header">
+  <nav class="navbar container">
+    <a class="brand" href="index.html">
+      <span class="brand-mark">R</span>
+      <span>Ruang<span class="brand-accent">UTBK</span></span>
+    </a>
+    <div class="nav-links">
+      <a class="nav-link" href="index.html">Beranda</a>
+      <a class="nav-link active" href="learning.html">Materi</a>
+      <a class="nav-link" href="index.html#faq">FAQ</a>
+    </div>
+    <button class="mobile-menu-button" id="sidebar-toggle" aria-label="Buka daftar materi">
+      <i data-feather="menu"></i>
+    </button>
+  </nav>
+</header>
+
+<main class="learning-layout">
+  <aside class="learning-sidebar" id="learning-sidebar">
+    <div class="sidebar-heading">
+      <span class="section-kicker">DAFTAR ISI</span>
+      <h2>Ruang Belajar</h2>
+    </div>
+    <label class="select-label" for="subject-select">Sub-bidang</label>
+    <select id="subject-select" class="subject-select"></select>
+    <div class="toc" id="sidebar-toc"></div>
+  </aside>
+
+  <section class="lesson-area">
+    <div class="lesson-container">
+      <div class="lesson-breadcrumb">
+        <span id="read-subject-tag">Penalaran Umum</span>
+        <span>/</span>
+        <span id="read-paket-tag">Paket 1</span>
+      </div>
+
+      <div class="lesson-heading">
+        <p class="lesson-number" id="read-number">1.3</p>
+        <h1 id="read-title">Prediksi</h1>
+      </div>
+
+      <section class="lesson-resources" aria-label="Materi pembelajaran">
+        <blockquote class="lesson-quote" id="read-quote">
+          “Kita tidak melihat masa depan; kita membaca jejak masa lalu untuk memperkirakannya.”
+        </blockquote>
+
+        <div class="resource-buttons">
+          <a id="read-video" class="resource-button" href="#" target="_blank" rel="noopener">
+            <i data-feather="play-circle"></i>
+            <span>Video Pembelajaran</span>
+            <i data-feather="arrow-up-right"></i>
+          </a>
+          <a id="read-document" class="resource-button" href="#" target="_blank" rel="noopener">
+            <i data-feather="file-text"></i>
+            <span>Download Materi PDF</span>
+            <i data-feather="download"></i>
+          </a>
+        </div>
+      </section>
+    </div>
+  </section>
+</main>
+
+<<script 
+   src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="config.js"></script>
+<script src="app.js"></script>
+<script>feather.replace();</script>
+</body>
+</html>
