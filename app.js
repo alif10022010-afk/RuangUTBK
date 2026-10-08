@@ -1,5 +1,5 @@
 /*
- * RuangUTBK — App Logic
+ * RuangUTBK â€” App Logic
  * Data materi: Supabase
  * UI: index.html + learning.html
  */
@@ -101,27 +101,13 @@ function createSupabaseClient() {
 }
 
 async function loadLessonsFromSupabase() {
-  if (!APP_CONFIG.useSupabase) {
-    console.warn("Supabase tidak aktif.");
-    return false;
-  }
-
   supabaseClient = createSupabaseClient();
 
   if (!supabaseClient) return false;
 
   const { data, error } = await supabaseClient
     .from("lessons")
-    .select(`
-      id,
-      subject_id,
-      package,
-      number,
-      title,
-      quote,
-      video_url,
-      document_url
-    `)
+    .select("id, subject_id, package, number, title, quote, video_url, document_url")
     .order("number", { ascending: true });
 
   if (error) {
@@ -130,9 +116,7 @@ async function loadLessonsFromSupabase() {
   }
 
   lessons = data || [];
-
   console.log(`RuangUTBK: ${lessons.length} materi berhasil dimuat.`);
-
   return true;
 }
 
@@ -316,7 +300,7 @@ function selectLesson(lessonId) {
   const title = $("#read-title");
   const quote = $("#read-quote");
   const video = $("#read-video");
-  const document = $("#read-document");
+  const documentLink = $("#read-document");
 
   if (subjectTag) {
     subjectTag.textContent = subject?.name || "Materi";
@@ -336,7 +320,7 @@ function selectLesson(lessonId) {
 
   if (quote) {
     quote.textContent = lesson.quote
-      ? `“${lesson.quote}”`
+      ? `â€œ${lesson.quote}â€`
       : "Belajar dimulai dari memahami.";
   }
 
@@ -360,13 +344,13 @@ function selectLesson(lessonId) {
      PDF / DOCUMENT
      ------------------------- */
 
-  if (document) {
+  if (documentLink) {
     const documentUrl = lesson.document_url?.trim() || "";
 
-    document.href = documentUrl || "#";
-    document.style.pointerEvents = documentUrl ? "auto" : "none";
-    document.style.opacity = documentUrl ? "1" : ".5";
-    document.setAttribute(
+    documentLink.href = documentUrl || "#";
+    documentLink.style.pointerEvents = documentUrl ? "auto" : "none";
+    documentLink.style.opacity = documentUrl ? "1" : ".5";
+    documentLink.setAttribute(
       "aria-disabled",
       documentUrl ? "false" : "true"
     );
