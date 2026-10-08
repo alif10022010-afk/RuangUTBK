@@ -636,7 +636,7 @@ button, select { font: inherit; }
 }
 
 
-/* RUANGUTBK — landing revision: full-screen + editorial Akademia */
+/* RUANGUTBK â€” landing revision: full-screen + editorial Akademia */
 .hero-fullscreen {
   min-height: calc(100vh - 76px);
   padding-top: 4.5rem;
@@ -735,7 +735,7 @@ button, select { font: inherit; }
 .faq-item.open .faq-plus { transform: rotate(45deg); }
 
 
-/* Learning page — intentionally minimal: quote + video + PDF */
+/* Learning page â€” intentionally minimal: quote + video + PDF */
 .lesson-resources {
   margin-top: 48px;
   max-width: 760px;
@@ -779,7 +779,7 @@ button, select { font: inherit; }
   .resource-buttons { grid-template-columns: 1fr; }
 }
 /* =====================================================
-   INDEX — FIX HORIZONTAL PAGE DRAG
+   INDEX â€” FIX HORIZONTAL PAGE DRAG
    ===================================================== */
 
 html,
@@ -815,4 +815,48 @@ main {
 /* Elemen dekoratif tetap berada di dalam hero */
 .hero-visual {
   position: relative;
-  overflow: 
+  overflow: hidden;
+}
+
+/* Cegah orbit dekoratif membuat horizontal overflow */
+.hero-orbit {
+  pointer-events: none;
+  max-width: 100%;
+}
+
+/* Semua container tidak boleh keluar viewport */
+.container {
+  width: min(100% - 40px, 1200px);
+  max-width: 1200px;
+  margin-inline: auto;
+  box-sizing: border-box;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .container {
+    width: min(100% - 32px, 1200px);
+  }
+
+  .hero {
+    overflow: hidden;
+  }
+
+  .hero-visual {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+
+/* Hero layout (dipindah dari index.html) */
+.hero-inner {
+  min-height: calc(100vh - 76px);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 60px;
+}
+@media (max-width: 860px) {
+  .hero-inner { grid-template-columns: 1fr; min-height: auto; gap: 40px; }
+}
